@@ -1,10 +1,11 @@
 package com.example.Booking_System.Controller;
 
 
+import com.example.Booking_System.Dto.Request.AddPersonRequestDto;
+import com.example.Booking_System.Dto.Response.AddPersonResponseDto;
 import com.example.Booking_System.Model.Person;
 import com.example.Booking_System.Service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,10 +21,10 @@ public class PersonController {
     PersonService personService;
 
     @PostMapping("/add")
-    public ResponseEntity addPerson(@RequestBody Person person)
+    public ResponseEntity addPerson(@RequestBody AddPersonRequestDto addPersonRequestDto)
     {
         try {
-            Person personResponse = personService.addPerson(person);
+            AddPersonResponseDto personResponse = personService.addPerson(addPersonRequestDto);
             return new ResponseEntity(personResponse, HttpStatus.CREATED);
         } catch (Exception e)
         {

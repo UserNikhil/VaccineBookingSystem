@@ -35,9 +35,9 @@ public class Person {
 
     boolean isDos2Taken;
 
-//    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
-//    List<Dose> doseTaken=new ArrayList<>();
-//
-//    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
-//    Certificate certificate;
+    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
+    List<Dose> doseTaken=new ArrayList<>();
+
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    Certificate certificate;
 }
