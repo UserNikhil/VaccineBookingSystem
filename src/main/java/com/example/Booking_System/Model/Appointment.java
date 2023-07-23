@@ -1,12 +1,10 @@
 package com.example.Booking_System.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.print.Doc;
 import java.util.Date;
 
 @Entity
@@ -24,4 +22,14 @@ public class Appointment {
     String appointmentId;
 
     Date appointmentDate;
+
+    int doseNo;
+
+    @ManyToOne
+    @JoinColumn
+    Person person;
+
+    @ManyToOne
+    @JoinColumn
+    Doctor doctor;
 }

@@ -1,13 +1,13 @@
 package com.example.Booking_System.Model;
 
 
-import com.example.Booking_System.Enum.CentreType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.Booking_System.Enum.CenterType;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,10 +20,12 @@ public class VaccinationCenter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    CentreType centreType;
+    CenterType CenterType;
 
-    String centreName;
+    String CenterName;
 
     String address;
 
+    @OneToMany(mappedBy = "centre", cascade = CascadeType.ALL)
+    List<Doctor> doctors= new ArrayList<>();
 }
